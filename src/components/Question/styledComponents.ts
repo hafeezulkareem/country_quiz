@@ -22,7 +22,7 @@ interface QuestionTextProps {
 
 export const QuestionText = styled.h2`
    color: ${colors.chambray};
-   font-size: 24px;
+   font-size: 18px;
    ${(props: QuestionTextProps) =>
       props.addTopMargin &&
       css`

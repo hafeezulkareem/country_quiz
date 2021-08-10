@@ -15,7 +15,7 @@ export const QuizHeader = styled.div`
 export const QuizTitle = styled.h1`
    text-transform: uppercase;
    font-weight: 700;
-   font-size: 32px;
+   font-size: 28px;
    color: ${colors.white};
 `;
 
@@ -26,7 +26,7 @@ export const LogoContainer = styled.div`
 
 export const QuestionCard = styled.div`
    margin-top: 10px;
-   padding: 48px 32px;
+   padding: 48px 32px 32px;
    border-radius: 24px;
    background-color: ${colors.white};
    box-sizing: border-box;
