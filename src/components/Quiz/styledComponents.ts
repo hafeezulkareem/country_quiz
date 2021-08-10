@@ -13,8 +13,6 @@ export const QuizHeader = styled.div`
 `;
 
 export const QuizTitle = styled.h1`
-   margin: 0;
-   padding: 0;
    text-transform: uppercase;
    font-weight: 700;
    font-size: 32px;

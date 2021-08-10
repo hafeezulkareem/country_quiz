@@ -8,8 +8,6 @@ export const QuestionContainer = styled.div`
 `;
 
 export const QuestionText = styled.h2`
-   margin: 0;
-   padding: 0;
    color: ${colors.chambray};
    font-size: 24px;
 `;
