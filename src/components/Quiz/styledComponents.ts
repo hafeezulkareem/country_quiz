@@ -26,7 +26,7 @@ export const LogoContainer = styled.div`
 
 export const QuestionCard = styled.div`
    margin-top: 10px;
-   padding: 64px 32px;
+   padding: 48px 32px;
    border-radius: 24px;
    background-color: ${colors.white};
    box-sizing: border-box;

@@ -3,7 +3,11 @@ import { connect, RootStateOrAny } from "react-redux";
 import { Dispatch } from "redux";
 
 import { ONGOING } from "../../constants/quizConstants";
-import { updateStatus } from "../../redux/actionCreators";
+import {
+   generateQuestion,
+   initScore,
+   updateStatus,
+} from "../../redux/actionCreators";
 
 import { QuizCompletedLogo } from "../QuizCompletedLogo";
 
@@ -20,10 +24,18 @@ import {
 interface QuizCompletedProps {
    score: string;
    tryAgain: () => void;
+   generateNewQuestion: () => void;
+   initScore: () => void;
 }
 
 const QuizCompleted = (props: QuizCompletedProps) => {
-   const { score, tryAgain } = props;
+   const { score, tryAgain, generateNewQuestion, initScore } = props;
+
+   const onClickTryAgain = () => {
+      initScore();
+      generateNewQuestion();
+      tryAgain();
+   };
 
    return (
       <QuizDetailsContainer>
@@ -35,7 +47,7 @@ const QuizCompleted = (props: QuizCompletedProps) => {
             <ResultsSentence>
                You got <Results>{score}</Results> correct answers
             </ResultsSentence>
-            <TryAgainButton onClick={tryAgain}>Try Again</TryAgainButton>
+            <TryAgainButton onClick={onClickTryAgain}>Try Again</TryAgainButton>
          </ResultsContainer>
       </QuizDetailsContainer>
    );
@@ -46,7 +58,11 @@ const mapStateToProps = (state: RootStateOrAny) => {
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
-   return { tryAgain: () => dispatch(updateStatus(ONGOING)) };
+   return {
+      tryAgain: () => dispatch(updateStatus(ONGOING)),
+      generateNewQuestion: () => dispatch(generateQuestion()),
+      initScore: () => dispatch(initScore()),
+   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuizCompleted);

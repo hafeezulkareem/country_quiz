@@ -5,6 +5,8 @@ export interface OptionType {
 }
 
 export interface QuestionType {
+   type: number;
    question: string;
    options: Array<OptionType>;
+   flag: string;
 }

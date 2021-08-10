@@ -2,21 +2,30 @@ import styled from "styled-components";
 
 import { colors } from "../../theme/colors";
 
+interface OptionButtonProps {
+   colors: { background: string; text: string };
+}
+
 export const OptionButton = styled.button`
    width: 100%;
    display: flex;
    cursor: pointer;
    border: 2px solid ${colors.indigo};
-   color: ${colors.indigo};
    font-weight: 500;
    padding: 10px 18px;
    border-radius: 12px;
    transition: all 0.1s linear;
+   background-color: ${(props: OptionButtonProps) => props.colors.background};
+   color: ${(props: OptionButtonProps) => props.colors.text};
 
-   &:hover {
+   &:not(:disabled):hover {
       background-color: ${colors.seaBuckthorn};
       border-color: ${colors.seaBuckthorn};
       color: ${colors.white};
+   }
+
+   &:disabled {
+      cursor: not-allowed;
    }
 `;
 

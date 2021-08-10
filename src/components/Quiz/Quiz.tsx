@@ -16,17 +16,6 @@ import {
    QuizTitle,
 } from "./styledComponents";
 
-const sampleQuestion = {
-   question: "Kuala Lumpur is the capital of",
-   options: [
-      { serial: "A", option: "Vietnam", correct: false },
-      { serial: "B", option: "Malaysia ", correct: true },
-
-      { serial: "C", option: "Sweden", correct: false },
-      { serial: "D", option: "Austria", correct: false },
-   ],
-};
-
 interface QuizProps {
    status: string;
 }
@@ -49,7 +38,7 @@ const Quiz = (props: QuizProps) => {
                <QuizCompleted />
             ) : (
                <QuestionContainer>
-                  <Question question={sampleQuestion} />
+                  <Question />
                </QuestionContainer>
             )}
          </QuestionCard>
