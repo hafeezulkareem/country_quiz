@@ -9,6 +9,7 @@ interface OptionButtonProps {
 export const OptionButton = styled.button`
    width: 100%;
    display: flex;
+   align-items: center;
    cursor: pointer;
    border: 2px solid ${colors.indigo};
    font-weight: 500;
@@ -35,4 +36,6 @@ export const OptionSerial = styled.span`
 
 export const OptionText = styled.span``;
 
-export const ResultIcon = styled.span``;
+export const ResultIcon = styled.span`
+   margin-left: auto;
+`;

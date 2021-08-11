@@ -1,9 +1,16 @@
 import React from "react";
-import { colors } from "../../theme/colors";
+import { IoIosCloseCircleOutline } from "react-icons/io";
+import { TiTick } from "react-icons/ti";
 
+import { colors } from "../../theme/colors";
 import { OptionType } from "../../types";
 
-import { OptionButton, OptionSerial, OptionText } from "./styledComponents";
+import {
+   OptionButton,
+   OptionSerial,
+   OptionText,
+   ResultIcon,
+} from "./styledComponents";
 
 interface OptionProps {
    option: OptionType;
@@ -20,17 +27,20 @@ const Option = (props: OptionProps) => {
       selected,
    } = props;
 
+   const isCorrect = () => completed && correct;
+
+   const isWrong = () =>
+      completed && option === selected?.option && !selected.correct;
+
    const getColors = () => {
-      if (completed) {
-         if (selected) {
-            if (correct) {
-               return { background: colors.silverTree, text: colors.white };
-            }
-            if (!selected.correct && selected.option === option) {
-               return { background: colors.apricot, text: colors.white };
-            }
-         }
-         return { background: "transparent", text: colors.indigo };
+      if (isCorrect()) {
+         return { background: colors.silverTree, text: colors.white };
+      }
+      if (isWrong()) {
+         return {
+            background: colors.apricot,
+            text: colors.white,
+         };
       }
       return { background: "transparent", text: colors.indigo };
    };
@@ -43,6 +53,16 @@ const Option = (props: OptionProps) => {
       >
          <OptionSerial>{serial}</OptionSerial>
          <OptionText>{option}</OptionText>
+         {isCorrect() ? (
+            <ResultIcon>
+               <TiTick size={20} color={colors.white} />
+            </ResultIcon>
+         ) : null}
+         {isWrong() ? (
+            <ResultIcon>
+               <IoIosCloseCircleOutline size={20} color={colors.white} />
+            </ResultIcon>
+         ) : null}
       </OptionButton>
    );
 };
