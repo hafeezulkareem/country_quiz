@@ -56,4 +56,5 @@ export const NextButton = styled.button`
    font-weight: 500;
    border-radius: 12px;
    cursor: pointer;
+   box-shadow: 0px 2px 4px rgba(252, 168, 47, 0.4);
 `;
