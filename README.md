@@ -6,7 +6,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://hafeezulkareem-windbnb.netlify.app/" target="_blank">
+    <a href="https://country-quiz-devchallenges.netlify.app/" target="_blank">
       Demo
     </a>
     <span> | </span>
