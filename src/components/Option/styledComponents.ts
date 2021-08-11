@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { colors } from "../../theme/colors";
 
 interface OptionButtonProps {
-   colors: { background: string; text: string };
+   colors: { background: string; text: string; border: string };
 }
 
 export const OptionButton = styled.button`
@@ -11,7 +11,7 @@ export const OptionButton = styled.button`
    display: flex;
    align-items: center;
    cursor: pointer;
-   border: 2px solid ${colors.indigo};
+   border: 2px solid ${(props: OptionButtonProps) => props.colors.border};
    font-weight: 500;
    padding: 10px 18px;
    border-radius: 12px;

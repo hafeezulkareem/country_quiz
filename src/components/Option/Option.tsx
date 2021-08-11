@@ -34,15 +34,24 @@ const Option = (props: OptionProps) => {
 
    const getColors = () => {
       if (isCorrect()) {
-         return { background: colors.silverTree, text: colors.white };
+         return {
+            background: colors.silverTree,
+            text: colors.white,
+            border: colors.silverTree,
+         };
       }
       if (isWrong()) {
          return {
             background: colors.apricot,
             text: colors.white,
+            border: colors.apricot,
          };
       }
-      return { background: "transparent", text: colors.indigo };
+      return {
+         background: "transparent",
+         text: colors.indigo,
+         border: colors.indigo,
+      };
    };
 
    return (
